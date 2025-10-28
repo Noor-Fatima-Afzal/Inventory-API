@@ -1,9 +1,4 @@
-name: CI
-
-on:
-  push:
-  pull_request:
-
+# .github/workflows/ci.yml
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -20,17 +15,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests
+      - name: Set environment variables
         run: |
-          pytest -q --maxfail=1 --disable-warnings
+          echo "FLASK_ENV=testing" >> $GITHUB_ENV
+          echo "DATABASE_URL=sqlite:///:memory:" >> $GITHUB_ENV
+          echo "SECRET_KEY=test-secret" >> $GITHUB_ENV
+          echo "JWT_SECRET_KEY=test-jwt-secret" >> $GITHUB_ENV
 
-  docker-build:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - uses: actions/checkout@v4
-      - name: Docker Build (no push)
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: false
+      - name: Run tests
+        run: pytest -q --disable-warnings

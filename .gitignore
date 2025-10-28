@@ -1,0 +1,96 @@
+# ---------------------------
+# Python / Flask
+# ---------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+*.log
+*.pot
+*.mo
+*.orig
+*.rej
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+Pipfile.lock
+poetry.lock
+
+# Byte-compiled / cached
+.pytest_cache/
+.mypy_cache/
+coverage.xml
+.cache/
+*.cover
+htmlcov/
+
+# Flask & Database
+instance/
+*.db
+*.sqlite
+app.db
+migrations/
+*.pyc
+__pycache__/
+
+# Environment & Config
+.env
+.env.*
+!.env.example
+.flaskenv
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker
+# ---------------------------
+Dockerfile~
+docker-compose.override.yml
+*.pid
+*.tar
+*.bak
+*.old
+*.tmp
+build/
+dist/
+
+# Test / Coverage artifacts
+# ---------------------------
+.tox/
+nosetests.xml
+test-results/
+reports/
+junit/
+.coverage
+coverage.xml
+.pytest_cache/
+*.pytest_cache/
+site/
+
+# GitHub Actions (cache)
+# ---------------------------
+.github/workflows/__pycache__/
+.github/workflows/*.log
+
+# Compiled files from marshmallow or others (just in case)
+*.so
+*.dll
+*.dylib
+
